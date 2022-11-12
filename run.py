@@ -1,4 +1,14 @@
 import random
+import sys, time
+
+def print_slow(string):
+    """
+    Print slowly the text on terminal
+    """
+    for letter in string:
+        sys.stdout.write(letter)
+        sys.stdout.flush()
+        time.sleep(0.05)
 
 
 def start():
@@ -6,23 +16,22 @@ def start():
     Introduction into the game
     Explain the rules of the games
     """
-    print('Guess the Number')
+    print_slow('Guess the Number Game!\n')
     name = input('Enter you name:\n')
-    print(f'Hello {name}! Nice to meet you!\n')
-    print('I am thinking about a number between 1-10 ...')
-    print('You have to guess the number within three tries')
+    print_slow(f'Hello {name.capitalize()}! Nice to meet you!\n')
+    print_slow('I am thinking about a number between 1-10 ...')
+    print_slow('You have to guess the number within three attempts\n')
 
 
 
 def compare_num():
     """
     Generate a random number between 1-10.
-    Run a while loop for 3 times in which the number typed by user is
+    Run a while loop 3 times in which the number typed by user is
     compared with a random number.
     If the numbers are not equal if statements will print hints to the user. 
-    Another while loop runns until the value inserted by the user is valid, it needs to be 
+    Another while loop runs until the value inserted by the user is valid, it has to be 
     a number between 1-10.
-    
     """
     guess_num = random.randint(1,10)
     count = 0
@@ -35,16 +44,16 @@ def compare_num():
         if guess_num == int(user_num):
             break   
         elif guess_num > int(user_num):
-            print(f'...Number {user_num} is too low')
+            print(f'...Number {user_num} is too low\n')
             count += 1  
         elif guess_num < int(user_num):
-            print(f'...Number {user_num} is too high')
+            print(f'...Number {user_num} is too high\n')
             count += 1
 
     if count == 3:
         print(f'Sorry! Out of guesses! My number was {guess_num}\n')
     elif guess_num == int(user_num):
-        print(f'Good guess!!! The number was {guess_num}\n')
+        print_slow(f'Good guess!!! The number was {guess_num}\n')
     
     play_again()
   
@@ -82,7 +91,7 @@ def play_again ():
         elif choice.lower()  == 'n':
             exit()
         raise TypeError(
-            print(f'Not sure what you mean by {choice}...Try again with Y or N')
+            print(f'Not sure what you mean by {choice}...Type Y for yes or N for no')
         )
     except TypeError as e:
         play_again()
