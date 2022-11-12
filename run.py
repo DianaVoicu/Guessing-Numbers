@@ -20,7 +20,7 @@ def compare_num():
     Run a while loop for 3 times in which the number typed by user is
     compared with a random number.
     If the numbers are not equal if statements will print hints to the user. 
-    Another while loop runns until the value inserted by the user is valid, it has to be 
+    Another while loop runns until the value inserted by the user is valid, it needs to be 
     a number between 1-10.
     
     """
@@ -42,9 +42,11 @@ def compare_num():
             count += 1
 
     if count == 3:
-        print(f'Sorry! Out of guesses! My number was {guess_num}')
+        print(f'Sorry! Out of guesses! My number was {guess_num}\n')
     elif guess_num == int(user_num):
-        print(f'Good guess!!! The number was {guess_num}')
+        print(f'Good guess!!! The number was {guess_num}\n')
+    
+    play_again()
   
     
 def validation_int(value):
@@ -57,7 +59,7 @@ def validation_int(value):
     """
     try:
         user_int = int(value)
-        if user_int > 10 or user_int <= 1:
+        if user_int > 10 or user_int < 1:
             raise ValueError (
                 f'Please enter a number between 1-10'
             )
@@ -67,6 +69,24 @@ def validation_int(value):
 
     return True
     
+def play_again ():
+    """
+    Repeat the game if the user would like to continue by pressing 'y'.
+    Stope the game if the user presses the key 'n'.
+    Raise a TypeError if other key than 'y' or 'n' is pressed.
+    """
+    choice = input('Do you wish to play again? Y/N\n')
+    try:
+        if choice.lower() == 'y':
+            compare_num()
+        elif choice.lower()  == 'n':
+            exit()
+        raise TypeError(
+            print(f'Not sure what you mean by {choice}...Try again with Y or N')
+        )
+    except TypeError as e:
+        play_again()
+
 
 
 def main():
