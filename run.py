@@ -1,3 +1,9 @@
+"""
+Module random to generate a number between 1 - 10.
+Sys and time allows us to manipulate the runtime of the letters.
+Pyfiglet give us a font art for the title.
+Rich library for writing coloured text and the symbol thumbs up.
+"""
 import random
 import sys
 import time
@@ -33,7 +39,7 @@ def compare_num():
     Generate a random number between 1 - 10.
     Run a while loop 3 times in which the number typed by user is
     compared with a random number.
-    If the numbers are not equal if statements will print hints to the user. 
+    If the numbers are not equal if statements will print hints to the user.
     Another while loop runs until the value inserted by the user is valid.
     """
     guess_num = random.randint(1, 10)
@@ -50,7 +56,7 @@ def compare_num():
             break
         elif guess_num > int(user_num):
             print(f'...Number {user_num} is too low\n')
-            count += 1  
+            count += 1
         elif guess_num < int(user_num):
             print(f'...Number {user_num} is too high\n')
             count += 1
@@ -65,17 +71,17 @@ def validation_int(value):
     """
     Validate the user's input.
     Inside the try the value is convereted in integers.
-    Raises ValueError if the value can't be converted or if the value is 
-    smaller than 1 or higher than 10. 
+    Raises ValueError if the value can't be converted or if the value is
+    smaller than 1 or higher than 10.
     """
     try:
         user_int = int(value)
         if user_int > 10 or user_int < 1:
             raise ValueError(
-                f'Please enter a number between 1 - 10'
+                f'Not {user_int}. Please enter a number between 1 - 10.'
              )
-    except ValueError as e:
-        print(f'Invalid data: {e}. Try again!')
+    except ValueError as e_error:
+        print(f'Invalid data: {e_error}. Try again!')
         return False
 
     return True
