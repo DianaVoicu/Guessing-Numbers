@@ -1,5 +1,8 @@
 import random
-import sys, time
+import sys
+import time
+import pyfiglet
+from rich import print
 
 
 def print_slow(string):
@@ -9,7 +12,7 @@ def print_slow(string):
     for letter in string:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(0.05)
+        time.sleep(.04)
 
 
 def start():
@@ -17,16 +20,17 @@ def start():
     Introduction into the game
     Explain the rules of the games
     """
-    print_slow('Guess the Number Game!\n')
-    name = input('Enter you name:\n')
-    print_slow(f'Hello {name.capitalize()}! Nice to meet you!\n')
-    print_slow('I am thinking about a number between 1-10 ...')
+    main_title = pyfiglet.figlet_format("Guess the Number", font="standard")
+    print(f'[yellow]{main_title}[/]')
+    user_name = input('Enter you name:\n')
+    print_slow(f'Hello {user_name.capitalize()}! Nice to meet you!\n')
+    print_slow('I am thinking about a number between 1 - 10 ...')
     print_slow('You have to guess the number within three attempts\n')
 
 
 def compare_num():
     """
-    Generate a random number between 1-10.
+    Generate a random number between 1 - 10.
     Run a while loop 3 times in which the number typed by user is
     compared with a random number.
     If the numbers are not equal if statements will print hints to the user. 
@@ -42,7 +46,8 @@ def compare_num():
                 break
 
         if guess_num == int(user_num):
-            break   
+            print(f'Good guess!!!:thumbs_up: The number was {guess_num}\n')
+            break
         elif guess_num > int(user_num):
             print(f'...Number {user_num} is too low\n')
             count += 1  
@@ -52,31 +57,29 @@ def compare_num():
 
     if count == 3:
         print(f'Sorry! Out of guesses! My number was {guess_num}\n')
-    elif guess_num == int(user_num):
-        print_slow(f'Good guess!!! The number was {guess_num}\n')
 
     play_again()
-  
-    
+
+
 def validation_int(value):
     """
     Validate the user's input.
     Inside the try the value is convereted in integers.
     Raises ValueError if the value can't be converted or if the value is 
-    smaller than 1 and higher than 10. 
+    smaller than 1 or higher than 10. 
     """
     try:
         user_int = int(value)
         if user_int > 10 or user_int < 1:
             raise ValueError(
-                f'Please enter a number between 1-10'
-            )
+                f'Please enter a number between 1 - 10'
+             )
     except ValueError as e:
         print(f'Invalid data: {e}. Try again!')
         return False
 
     return True
-    
+
 
 def play_again():
     """
@@ -84,7 +87,7 @@ def play_again():
     Stop the game if the user presses the key 'n'.
     Raise a TypeError if other key than 'y' or 'n' is pressed.
     """
-    choice = input('Do you wish to play again? Y/N\n')
+    choice = input('Do you wish to play again? Y / N\n')
     try:
         if choice.lower() == 'y':
             compare_num()
@@ -93,7 +96,7 @@ def play_again():
             exit()
         raise TypeError(
             print(f'Not sure what you mean by {choice}...Type Y / N')
-        )
+         )
     except TypeError:
         play_again()
 
