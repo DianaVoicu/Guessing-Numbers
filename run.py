@@ -55,10 +55,10 @@ def compare_num():
             print(f'Good guess!!!:thumbs_up: The number was {guess_num}\n')
             break
         elif guess_num > int(user_num):
-            print(f'...Number {user_num} is too low\n')
+            print(f'Number {user_num} is too low...guess again\n')
             count += 1
         elif guess_num < int(user_num):
-            print(f'...Number {user_num} is too high\n')
+            print(f'Number {user_num} is too high...guess again\n')
             count += 1
 
     if count == 3:
