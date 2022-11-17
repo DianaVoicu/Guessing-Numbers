@@ -30,13 +30,14 @@ def start():
     print(f'[yellow]{main_title}[/]')
     user_name = input('Enter you name:\n')
     print_slow(f'Hello {user_name.capitalize()}! Nice to meet you!\n')
-    print_slow('I am thinking about a number between 1 - 10 ...')
+    print_slow('I am thinking about a number between 1 - 10...\n')
     print_slow('You have to guess the number within three attempts\n')
 
 
 def compare_num():
     """
     Generate a random number between 1 - 10.
+    Input number from the user.
     Run a while loop 3 times in which the number typed by user is
     compared with a random number.
     If the numbers are not equal if statements will print hints to the user.
@@ -47,7 +48,7 @@ def compare_num():
 
     while count < 3:
         while True:
-            user_num = input('Type your guess:\n')
+            user_num = input('Enter your guess:\n')
             if validation_int(user_num):
                 break
 
