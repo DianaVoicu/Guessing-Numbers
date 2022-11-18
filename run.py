@@ -2,7 +2,7 @@
 Module random to generate a number between 1 - 10.
 Sys and time allows us to manipulate the runtime of the letters.
 Pyfiglet give us a font art for the title.
-Rich library for writing coloured text and the symbol thumbs up.
+Colorama module for writing coloured text.
 """
 import random
 import sys
