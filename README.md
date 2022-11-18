@@ -67,7 +67,7 @@ The logic steps of the program are:
 
 ![Game-style](views/images/Game.jpg)
 
-  * I have used Rich library to get coloured numbers but also a thumbs up emoji for the winning message.
+  * I have used Colorama module to get coloured text in the terminal.
   * A good-bye message is displayed when the user decides to exit the game.
 
 ### **Inside the program**
@@ -110,9 +110,9 @@ The logic steps of the program are:
     
     * Used to covert the title text into ASCII art font.
 
-  * Rich library: 
+  * Colorama module: 
     
-    * Used to enrich the formatting to the terminal output.
+    * Used to print colored text in the terminal.
 
 ***
 ## Testing
@@ -143,8 +143,8 @@ The logic steps of the program are:
   * The pep8 validator showed an error on 'import sys, time' modules.
     * Importing them separately resolved this issue (best practice is to have one import per line).
 
-  * Colorama library didn't work after I imported. The Module not found error was displayed. 
-    * During my research I was reading about rich library as well so I simply decided to use rich instead and didn't got stuck in solving that small issue as it wasn't a big part of my project.
+  * Rich library didn't work in Heroku. I followed the steps to install the dependencies on heroku but Rich didn't show up in my requirements.txt.  
+    * During my research I was reading about colorama module as well so was easier to use it instead and didn't got stuck in solving that small issue as it wasn't a big part of my project.
 
   * No unsolved bugs. 
 
@@ -153,6 +153,15 @@ The logic steps of the program are:
 ## Deployment
 ***
 
+Prior the deployment on Heroku I install the dependecies for deployment, with the code pip3 freeze > requirements.txt.
+The program was deployed through Heroku following the steps:
+  * Create a Heroku account using Eco Dynos Plan.
+  * In Heroku's Settings I add a Config Var with Key: PORT and Value:8000.
+  * The first buildpack added was Python followed by node.js.
+  * Deployment method is GitHub.
+
+The live link is [guess-numb](https://guess-numb.herokuapp.com/).
+
 ***
 ## Credits
 ***
@@ -160,4 +169,5 @@ The logic steps of the program are:
   * The Python template was provided by [Code Institute](https://github.com/Code-Institute-Org/python-essentials-template).
   * Typing effect function is from [Stack Community](https://stackoverflow.com/questions/20302331/typing-effect-in-python) with just a few changes to customize it as I wanted. 
   * An inspiration for pyfiglet module was [Geeks for Geeks](https://geeksforgeeks.org/).
-  * The rich library was brought to my attention by [@Patloeber](https://www.youtube.com/@patloeber). 
+  * The rich library was brought to my attention by [@Patloeber](https://www.youtube.com/@patloeber). Unfortunately, it didn't work in Heroku.
+  * The colorama module from [Stack Community](https://stackoverflow.com/questions/61686780/python-colorama-print-all-colors).

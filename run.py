@@ -8,7 +8,10 @@ import random
 import sys
 import time
 import pyfiglet
-from rich import print
+import colorama
+from colorama import Fore
+
+colorama.init(autoreset=True)
 
 
 def print_slow(string):
@@ -27,7 +30,7 @@ def start():
     Explain the rules of the games
     """
     main_title = pyfiglet.figlet_format("Guess the Number", font="standard")
-    print(f'[yellow]{main_title}[/]')
+    print(Fore.YELLOW + f'{main_title}')
     user_name = input('Enter you name:\n')
     print_slow(f'Hello {user_name.capitalize()}! Nice to meet you!\n')
     print_slow('I am thinking about a number between 1 - 10...\n')
@@ -48,22 +51,23 @@ def compare_num():
 
     while count < 3:
         while True:
-            user_num = input('Enter your guess:\n')
+            user_num = input(Fore.BLUE + 'Enter your guess:\n')
             if validation_int(user_num):
                 break
 
         if guess_num == int(user_num):
-            print(f'Good guess!!!:thumbs_up: The number was {guess_num}\n')
+            print(Fore.YELLOW + f'Good guess!!! The number was {guess_num}\n')
             break
         elif guess_num > int(user_num):
-            print(f'Number {user_num} is too low...guess again\n')
+            print(Fore.BLUE + f'Number {user_num} is too low...\n')
             count += 1
         elif guess_num < int(user_num):
-            print(f'Number {user_num} is too high...guess again\n')
+            print(Fore.BLUE + f'Number {user_num} is too high...\n')
             count += 1
 
     if count == 3:
-        print(f'Sorry! Out of guesses! My number was {guess_num}\n')
+        print(Fore.MAGENTA + 'Sorry! Out of guesses!')
+        print(Fore.MAGENTA + f'My number was {guess_num}\n')
 
     play_again()
 
@@ -82,7 +86,7 @@ def validation_int(value):
                 f'Not {user_int}. Please enter a number between 1 - 10.'
              )
     except ValueError as e_error:
-        print(f'Invalid data: {e_error}. Try again!')
+        print(Fore.RED + f'Invalid data: {e_error}. Try again!')
         return False
 
     return True
@@ -102,7 +106,7 @@ def play_again():
             print_slow('Bye bye! Thank you for playing with me!\n')
             exit()
         raise TypeError(
-            print(f'Not sure what you mean by {choice}...Type Y / N')
+            print(Fore.RED + f'Not sure what you mean by {choice}...Type Y / N')
          )
     except TypeError:
         play_again()
