@@ -56,7 +56,7 @@ The logic steps of the program are:
 
 ### **Welcome Screen**
 
-![Introduction and rules](views/images/Intro-rules.jpg)
+![Introduction and rules](views/images/Intro%20and%20rules.jpg)
 
   * For a typing effect I have used sys and time module to offer a better user experience.
   * I ensured the time sleep is not too slow or too fast, in the way that the message is properly displayed for the player but still having a visible animated text.
@@ -65,7 +65,7 @@ The logic steps of the program are:
 
 ### **The game**
 
-![Game-style](views/images/Game.jpg)
+![Game-style](views/images/Game%20full.jpg)
 
   * I have used Colorama module to get coloured text in the terminal.
   * A good-bye message is displayed when the user decides to exit the game.
@@ -94,7 +94,7 @@ The logic steps of the program are:
 
   * Lucid app - to generate my flowchart
 
-![Flowchart](views/images/flowchart.jpg)
+![Flowchart](views/images/Flowchart%20.jpeg)
 
 ### **Libraries and modules** 
 
@@ -120,15 +120,15 @@ The logic steps of the program are:
 
   * With the pep8 validator still not working I have used the recommended replacement [pep8 CI heroku app](https://pep8ci.herokuapp.com/). The test showed no errors found. &check; 
 
-  ![pep8 Validator](views/images/pep8.jpg)
+  ![pep8 Validator](views/images/Test%20PY.jpg)
 
   * Checked that the validation function is working properly if the user's input is not a number so it would display an error message and return the input request to the user. &check;
 
-  ![Invalid: not a number](views/images/Validation1.jpg)
-
   * Checked that the validation function works for any numbers out of range 1 and 10. &check;
+  
+  ![Invalid input or invalid number](views/images/Invalid%20data.jpg)
 
-  ![Invalid: numbers 1 -10](views/images/Validation2.jpg)
+
 
 ***
 ## Bugs
@@ -160,7 +160,7 @@ The program was deployed through Heroku following the steps:
   * The first buildpack added was Python followed by node.js.
   * Deployment method is GitHub.
 
-The live link is [guess-numb](https://guess-numb.herokuapp.com/).
+The live link is [guess](https://guess.herokuapp.com/).
 
 ***
 ## Credits

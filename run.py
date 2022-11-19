@@ -106,9 +106,10 @@ def play_again():
             print_slow('Bye bye! Thank you for playing with me!\n')
             exit()
         raise TypeError(
-            print(Fore.RED + f'Not sure what you mean by {choice}...Type Y / N')
-         )
-    except TypeError:
+            f'Not sure what you mean by {choice}...Type Y / N'
+            )
+    except TypeError as e_error:
+        print(Fore.RED + f'Type error: {e_error}.')
         play_again()
 
 
